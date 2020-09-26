@@ -21,3 +21,9 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+.url.js
+url.js
+/src/url
+/src/url.js
+url
