@@ -24,7 +24,7 @@ const SubStatusBar = (props) => {
       <h1>Productathon</h1>
       <h2>Hello {props.user.username}!</h2>
       <h2>Your current score: {props.user.score}</h2>
-      {props.user.challenge && <p>{props.user.challenge}</p>}
+      {props.user.challenge && <p>{props.user.challenge.name}</p>}
     </div>
   );
 };

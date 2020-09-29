@@ -15,7 +15,7 @@ export const setLogout = () => ({
 });
 
 export const addChallenge = (url, challenge) => async (dispatch) => {
-  console.log('IS ANYTHING HAPPENING');
+  console.log('IS ANYTHING HAPPENING', challenge);
   let approval = await post(url, challenge);
   console.log(approval);
   dispatch(setChallenge(challenge));
@@ -26,7 +26,7 @@ export const setChallenge = (challenge) => ({
   payload: challenge,
 });
 
-export const setScore = (score) => ({
-  type: ActionTypes.SET_SCORE,
+export const processChallenge = (score) => ({
+  type: ActionTypes.PROCESS_CHALLENGE,
   payload: score,
 });

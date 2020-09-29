@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { get, post } from './fetch/fetch';
-import { setScore } from '../redux/actionCreators';
+import { processChallenge } from '../redux/actionCreators';
 
 import '../App.css';
 
@@ -23,8 +23,8 @@ class Profile extends Component {
 
   score = async (score) => {
     const { id } = this.state;
-    let results = post(`/challenges/score`, { score, id });
-    this.props.setScore(score);
+    let results = post(`/challenges/process-challenge`, { score, id });
+    this.props.processChallenge(score);
     this.setState({
       challenges: results.challenges,
     });
@@ -48,8 +48,10 @@ class Profile extends Component {
               <button onClick={() => this.score(2)}>Regular Challenge</button>
               <button onClick={() => this.score(3)}>Bonus Challenge</button>
             </div>
+            <button onClick={() => this.score(0)}>Drop Challenge</button>
           </div>
         )}
+        <h2>Previous Challenges</h2>
       </div>
     );
   }
@@ -60,7 +62,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = {
-  setScore: (score) => setScore(score),
+  processChallenge: (score) => processChallenge(score),
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Profile);
