@@ -11,7 +11,6 @@ let defaultState = {
 export const userReducer = (state = defaultState, action) => {
   switch (action.type) {
     case ActionTypes.LOGGED_IN:
-      console.log('INSIDE THE REDUCER', action.payload);
       const { username, score, challenges } = action.payload;
       return { username: username, score: score, challenges: challenges };
     case ActionTypes.SET_CHALLENGE:

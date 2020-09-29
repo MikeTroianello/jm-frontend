@@ -27,36 +27,13 @@ class Login extends Component {
     console.log('THESE ARE THE RESULTS:', results);
     this.setState(
       {
-        msg: results.msg,
+        msg: results.message,
       },
       () => console.log(this.state)
     );
-    this.props.setLogin(results.user);
-    // this.props.history.push('/profile');
-  };
-
-  testLogin = async (e) => {
-    e.preventDefault();
-    let results = await get('/register/test');
-    console.log('THESE ARE THE RESULTS:', results);
-    this.setState(
-      {
-        msg: results.msg,
-      },
-      () => console.log(this.state)
-    );
-  };
-
-  logout = async (e) => {
-    e.preventDefault();
-    let results = await post('/register/logout');
-    console.log('THESE ARE THE RESULTS:', results);
-    this.setState(
-      {
-        msg: results.msg,
-      },
-      () => console.log(this.state)
-    );
+    if (results.success) {
+      this.props.setLogin(results.user);
+    }
   };
 
   render() {
@@ -82,6 +59,7 @@ class Login extends Component {
           />
         </div>
         <button onClick={this.submitForm}>Log in</button>
+        <p>{this.state.msg}</p>
       </div>
     );
   }

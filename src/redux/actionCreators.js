@@ -16,7 +16,8 @@ export const setLogout = () => ({
 
 export const addChallenge = (url, challenge) => async (dispatch) => {
   console.log('IS ANYTHING HAPPENING');
-  await post(url, challenge);
+  let approval = await post(url, challenge);
+  console.log(approval);
   dispatch(setChallenge(challenge));
 };
 

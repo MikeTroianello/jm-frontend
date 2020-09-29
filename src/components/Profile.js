@@ -22,7 +22,8 @@ class Profile extends Component {
   };
 
   score = async (score) => {
-    let results = post(`/challenges/score/${this.state.challenge._id}`, score);
+    const { id } = this.state;
+    let results = post(`/challenges/score`, { score, id });
     this.props.setScore(score);
     this.setState({
       challenges: results.challenges,
@@ -43,9 +44,9 @@ class Profile extends Component {
             <p>For 50 Points: {this.state.challenge.minimumChallenge}</p>
 
             <div className='three-buttons'>
-              <button onClick={() => this.score(50)}>Minimum Challenge</button>
-              <button onClick={() => this.score(100)}>Regular Challenge</button>
-              <button onClick={() => this.score(150)}>Bonus Challenge</button>
+              <button onClick={() => this.score(1)}>Minimum Challenge</button>
+              <button onClick={() => this.score(2)}>Regular Challenge</button>
+              <button onClick={() => this.score(3)}>Bonus Challenge</button>
             </div>
           </div>
         )}

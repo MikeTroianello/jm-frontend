@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { setChallenge, addChallenge } from '../../redux/actionCreators';
 import { post } from '../fetch/fetch';
+import { Link } from 'react-router-dom';
 import './challenge.css';
 
 function Challenge(props) {
@@ -19,13 +20,20 @@ function Challenge(props) {
       <p>For 100 Points: {challenge}</p>
       <p>For 150 Points: {bonusChallenge}</p>
       <p>For 50 Points: {minimumChallenge}</p>
-      <button
-        onClick={() => {
-          props.addChallenge(`/challenges/accept/${props.all._id}`, props.all);
-        }}
-      >
-        Take this challenge
-      </button>
+      {props.button ? (
+        <button
+          onClick={() => {
+            props.addChallenge(
+              `/challenges/accept/${props.all._id}`,
+              props.all
+            );
+          }}
+        >
+          Take this challenge
+        </button>
+      ) : (
+        <Link to='/'>Create an account and take this challenge!</Link>
+      )}
     </div>
   );
 }

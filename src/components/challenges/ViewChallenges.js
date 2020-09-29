@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { get } from '../fetch/fetch';
 
 import Challenge from './Challenge';
 
-export default class ViewChallenges extends Component {
+class ViewChallenges extends Component {
   state = {
     challenges: [],
   };
@@ -18,10 +19,22 @@ export default class ViewChallenges extends Component {
     return (
       <div>
         <h1>ALL AVAILABLE CHALLENGES</h1>
-        {this.state.challenges.map((challenge) => {
-          return <Challenge all={challenge} />;
+        {this.state.challenges.map((challenge, i) => {
+          return (
+            <Challenge
+              all={challenge}
+              key={i}
+              button={Boolean(this.props.user.username)}
+            />
+          );
         })}
       </div>
     );
   }
 }
+
+const mapStateToProps = (state) => ({
+  user: state.userReducer,
+});
+
+export default connect(mapStateToProps)(ViewChallenges);
