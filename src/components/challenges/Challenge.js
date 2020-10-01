@@ -17,9 +17,9 @@ function Challenge(props) {
     <div className='challenge'>
       <h2>{name}</h2>
       <p>{category}</p>
-      <p>For 100 Points: {challenge}</p>
-      <p>For 150 Points: {bonusChallenge}</p>
-      <p>For 50 Points: {minimumChallenge}</p>
+      <p>100 Points: {challenge}</p>
+      <p>150 Points: {bonusChallenge}</p>
+      <p>50 Points: {minimumChallenge}</p>
       {props.button ? (
         <button
           onClick={() => {
@@ -27,6 +27,7 @@ function Challenge(props) {
               `/challenges/accept/${props.all._id}`,
               props.all
             );
+            props.history.push('/profile');
           }}
         >
           Take this challenge

@@ -4,10 +4,19 @@ import logger from 'redux-logger';
 
 import { userReducer } from './user';
 
+// export const ConfigureStore = () => {
+//   const store = createStore(
+//     combineReducers({ userReducer }),
+//     applyMiddleware(thunk, logger)
+//   );
+
+//   return store;
+// };
+
 export const ConfigureStore = () => {
   const store = createStore(
     combineReducers({ userReducer }),
-    applyMiddleware(thunk, logger)
+    applyMiddleware(thunk)
   );
 
   return store;

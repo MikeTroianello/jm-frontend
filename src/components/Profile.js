@@ -31,17 +31,22 @@ class Profile extends Component {
   };
 
   render() {
+    console.log('bebebebebebebebebeb PRORPSOPWEFBWEFI', this.props);
     return (
       <div>
         <h1>Welcome, {this.props.user.username}!</h1>
         <h2>Your current Challenge</h2>
-        {this.state.challenge && (
+        {this.props.user.currentChallenge && (
           <div className='challenge'>
-            <h2>{this.state.challenge.name}</h2>
-            <p>{this.state.challenge.category}</p>
-            <p>For 100 Points: {this.state.challenge.challenge}</p>
-            <p>For 150 Points: {this.state.challenge.bonusChallenge}</p>
-            <p>For 50 Points: {this.state.challenge.minimumChallenge}</p>
+            <h2>{this.props.user.currentChallenge.name}</h2>
+            <p>{this.props.user.currentChallenge.category}</p>
+            <p>For 100 Points: {this.props.user.currentChallenge.challenge}</p>
+            <p>
+              For 150 Points: {this.props.user.currentChallenge.bonusChallenge}
+            </p>
+            <p>
+              For 50 Points: {this.props.user.currentChallenge.minimumChallenge}
+            </p>
 
             <div className='three-buttons'>
               <button onClick={() => this.score(1)}>Minimum Challenge</button>

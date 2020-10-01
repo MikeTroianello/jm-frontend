@@ -1,7 +1,9 @@
 import * as ActionTypes from './actionTypes';
 import { post } from '../components/fetch/fetch';
 
-export const login = () => (dispatch) => {};
+// export const login = () => async (dispatch) => {
+//   dispatch(setLogin(user));
+// };
 
 export const setLogin = (user) => ({
   type: ActionTypes.LOGGED_IN,

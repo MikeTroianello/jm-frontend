@@ -24,7 +24,7 @@ class Login extends Component {
   submitForm = async (e) => {
     e.preventDefault();
     let results = await post('/register/login', this.state);
-    console.log('THESE ARE THE RESULTS:', results);
+    console.log('THESE ARE THE RESULTS of the LOGINNNNNNN:', results);
     this.setState(
       {
         msg: results.message,
@@ -35,6 +35,21 @@ class Login extends Component {
       this.props.setLogin(results.user);
     }
   };
+
+  // submitForm = async (e) => {
+  //   e.preventDefault();
+  //   let results = await post('/register/login', this.state);
+  //   console.log('THESE ARE THE RESULTS:', results);
+  //   this.setState(
+  //     {
+  //       msg: results.message,
+  //     },
+  //     () => console.log(this.state)
+  //   );
+  //   if (results.success) {
+  //     this.props.setLogin(results.user);
+  //   }
+  // };
 
   render() {
     // console.log('BIG MONEY', this.props.history);

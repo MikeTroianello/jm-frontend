@@ -11,15 +11,23 @@ let defaultState = {
 export const userReducer = (state = defaultState, action) => {
   switch (action.type) {
     case ActionTypes.LOGGED_IN:
-      const { username, score, previousChallenges, challenge } = action.payload;
+      const {
+        username,
+        score,
+        previousChallenges,
+        currentChallenge,
+      } = action.payload;
       return {
         username: username,
         score: score,
         previousChallenges: previousChallenges,
-        challenge: challenge,
+        currentChallenge,
       };
     case ActionTypes.SET_CHALLENGE:
-      console.log('AHHHHHHHHHHHH', action.payload);
+      console.log(
+        'THIS IS THE CONSOLE LOG THAT YOU NEED TO LOOK FOR',
+        action.payload
+      );
       return { ...state, challenge: action.payload };
     case ActionTypes.SET_GROUP:
       return { ...state, group: action.payload };

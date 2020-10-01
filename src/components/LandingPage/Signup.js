@@ -9,8 +9,8 @@ import './styles.css';
 
 class Signup extends Component {
   state = {
-    username: '',
-    password: '',
+    username: 'Mike',
+    password: 'mike',
     phone: '',
     email: '',
   };
