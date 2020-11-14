@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { get, post } from './fetch/fetch';
-import { processChallenge } from '../redux/actionCreators';
+import { get, post } from '../fetch/fetch';
+import { processChallenge } from '../../redux/actionCreators';
 
-import '../App.css';
+import '../../App.css';
 
 class Profile extends Component {
   state = {
@@ -31,13 +31,18 @@ class Profile extends Component {
   };
 
   render() {
-    console.log('bebebebebebebebebeb PRORPSOPWEFBWEFI', this.props);
+    console.log('ONE', this.props);
+    console.log('TWO', this.props.user.currentChallenge);
     return (
       <div>
         <h1>Welcome, {this.props.user.username}!</h1>
         <h2>Your current Challenge</h2>
         {this.props.user.currentChallenge && (
           <div className='challenge'>
+            {console.log(
+              'IS THIS A SUCCESSSS?????',
+              this.props.user.currentChallenge
+            )}
             <h2>{this.props.user.currentChallenge.name}</h2>
             <p>{this.props.user.currentChallenge.category}</p>
             <p>For 100 Points: {this.props.user.currentChallenge.challenge}</p>

@@ -6,7 +6,7 @@ import Home from './Home';
 
 import LandingPage from './LandingPage/LandingPage';
 import Signup from './LandingPage/Signup';
-import Profile from './Profile';
+import Profile from './profile/Profile';
 
 import Blog from './other/Blog';
 import Test from './other/Test';

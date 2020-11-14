@@ -25,6 +25,7 @@ class ViewChallenges extends Component {
               all={challenge}
               key={i}
               button={Boolean(this.props.user.username)}
+              history={this.props.history}
             />
           );
         })}
